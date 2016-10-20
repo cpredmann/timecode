@@ -20,7 +20,7 @@
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
-
+from fractions import Fraction
 
 __version__ = '0.4.0'
 
@@ -86,8 +86,8 @@ class Timecode(object):
         """
 
         # check if number is passed and if so convert it to a string
-        if isinstance(framerate, (int, float)):
-            framerate = '{:.02f}'.format(framerate)
+        if isinstance(framerate, (int, float, Fraction)):
+            framerate = '{:.02f}'.format(float(framerate))
 
         # set the int_frame_rate
         if framerate == '29.97':
